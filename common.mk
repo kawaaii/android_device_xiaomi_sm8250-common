@@ -377,8 +377,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr
 
+ifeq ($(TARGET_BOARD_PLATFORM),lito)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint_$(TARGET_BOARD_PLATFORM).json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/powerhint_lito.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint_kona.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+endif
 
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
