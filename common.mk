@@ -380,6 +380,9 @@ PRODUCT_PACKAGES += \
 ifeq ($(TARGET_BOARD_PLATFORM),lito)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint_lito.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else ifeq ($(TARGET_IS_LAGOON),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint_lagoon.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint_kona.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
